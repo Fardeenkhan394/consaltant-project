@@ -8,11 +8,7 @@
 .page-home .section-alt { background: #f7f8fa; }
 .page-home .section { padding: 88px 0; }
 
-
-/* what we do section */
-/* ==========================================================================
-   Softer accents — Header settings (Jo aapne share ki thi)
-   ========================================================================== */
+/* Softer accents — less green */
 .page-home #main-content .section-eyebrow {
     color: #6b7280;
     letter-spacing: 2px;
@@ -41,542 +37,147 @@
     color: #6b7280;
 }
 
-/* ==========================================================================
-   New Enhancements: What We Do - Icon Boxes (Green Outer Glow on Hover)
-   ========================================================================== */
-.page-home #what-we-do .icon-box {
-    background: #ffffff;
+/* Org intro */
+.page-home .org-intro {
+    background: #fff;
+    border-bottom: 1px solid #eef0f3;
+    padding: 72px 0;
+}
+.page-home .org-lead { color: #5c6570; }
+.page-home .org-tagline {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 20px 28px;
+    background: #f7f8fa;
+    border-left: 3px solid #7bc74d;
+    border-radius: 0 6px 6px 0;
+    margin-top: 8px;
+}
+
+/* Icon boxes — clean white */
+.page-home .icon-box {
+    background: #fff;
     border: 1px solid #e8eaed;
-    border-radius: 6px;
-    padding: 25px 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
 }
-
-/* Cursor jaane par Green Outer Glow Effect */
-.page-home #what-we-do .icon-box:hover {
-    transform: translateY(-4px); /* Halka sa upar uthega box */
-    border-color: rgba(123, 199, 77, 0.4);
-    box-shadow: 0 0 30px rgba(123, 199, 77, 0.55), 0 10px 20px rgba(0, 0, 0, 0.05); /* Same as image green glow */
+.page-home .icon-box:hover {
+    border-color: #d0d5dd;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    transform: translateY(-3px);
 }
-
-/* Optional: Hover par icon ka color aur bright green karne ke liye */
-.page-home #what-we-do .icon-box:hover .ib-icon i {
+.page-home .icon-box .ib-icon {
+    background: #fff;
     color: #7bc74d;
+    border: 1px solid #e8eaed;
+    font-size: 24px;
+    width: 56px;
+    height: 56px;
 }
 
-
-/* ==========================================================================
-   New Enhancements: Explore All Services Button (Full Green on Hover)
-   ========================================================================== */
-.page-home #what-we-do .btn-outline {
-    color: #7bc74d;
-    border: 2px solid #7bc74d;
-    background: transparent;
-    padding: 10px 24px;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-    text-decoration: none;
-}
-
-/* Cursor jaane par Full Green background ho jaye */
-.page-home #what-we-do .btn-outline:hover {
-    background: #7bc74d !important;
-    color: #ffffff !important; /* Text color white ho jayega */
-    box-shadow: 0 8px 20px rgba(123, 199, 77, 0.3); /* Button ke niche bhi soft green glow */
-}
-
-/* pending */
-
-/* About stats — Neutral to Modern Interactive Boxes */
-.page-home .stats-row {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
-.page-home .stat-item {
-    flex: 1;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 15px 10px;
-    border-radius: 6px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-}
-
+/* About stats — neutral */
 .page-home .stat-item h3 {
     color: #2c3e50;
-    font-size: 24px; /* Size decreased for symmetry */
-    margin: 0 0 4px 0;
-    transition: color 0.3s ease;
+    font-size: 36px;
 }
-
-.page-home .stat-item h3 span { 
-    color: #7bc74d; 
-    font-size: 18px; 
-    transition: color 0.3s ease;
-}
-
-.page-home .stat-item p {
-    font-size: 11px;
-    color: #666;
-    margin: 0;
-    line-height: 1.3;
-    transition: color 0.3s ease;
-}
-
-/* Hover Effect: Boxes fill up with Green */
-.page-home .stat-item:hover {
-    background: #7bc74d;
-    border-color: #7bc74d;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(123, 199, 77, 0.25);
-}
-
-/* Hover par text and span white ho jaye */
-.page-home .stat-item:hover h3,
-.page-home .stat-item:hover h3 span,
-.page-home .stat-item:hover p {
-    color: #ffffff !important;
-}
-
-
-/* Image Configuration: Normal state with standard soft shadow */
+.page-home .stat-item h3 span { color: #7bc74d; font-size: 24px; }
 .page-home .about-img img {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); /* Normal clean shadow */
+    box-shadow: 0 12px 40px rgba(0,0,0,.08);
     border-radius: 8px;
-    transition: all 0.4s ease-in-out; /* Smooth hover transition */
 }
 
-/* Hover State: Green Outer Glow activates ONLY when cursor moves over it */
-.page-home .about-img img:hover {
-    transform: scale(1.02); /* Slight scale up for micro-interaction */
-    box-shadow: 0 0 30px rgba(123, 199, 77, 0.6), 0 10px 25px rgba(0, 0, 0, 0.1); /* Vibrant Green Outer Glow + Deep Shadow */
-}
-
-
-/* Smooth Ambient Glow Animation */
-@keyframes greenGlowPulse {
-    0% {
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05), 0 0 15px rgba(123, 199, 77, 0.15);
-    }
-    100% {
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 0 25px rgba(123, 199, 77, 0.35);
-    }
-}
-
-
-/*/* ==========================================
-   Values Section — Light Cards (Modern)
-========================================== */
-
+/* Values — light cards (override dark section) */
 .page-home .values-section {
     background: #f7f8fa !important;
     padding: 88px 0;
 }
-
-.page-home .values-section::before {
-    display: none;
-}
-
-/* Grid */
+.page-home .values-section::before { display: none; }
 .page-home .values-light-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 10px;
 }
-
 .values-grid-7 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
-/* Card */
 .page-home .value-card {
-    position: relative;
-    overflow: hidden;
-
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #e8eaed;
-    border-radius: 12px;
-
+    border-radius: 8px;
     padding: 28px 24px;
-
-    transition: all 0.35s ease;
+    transition: box-shadow .3s ease;
 }
-
-/* Glow Layer */
-.page-home .value-card::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: inherit;
-
-    background: radial-gradient(
-        circle at top,
-        rgba(34, 197, 94, 0.22),
-        transparent 70%
-    );
-
-    opacity: 0;
-    filter: blur(18px);
-
-    transition: opacity .35s ease;
-
-    z-index: -1;
-}
-
-/* Hover Effect */
-.page-home .value-card:hover {
-    transform: translateY(-8px);
-
-    border-color: #22c55e;
-
-    box-shadow:
-        0 0 0 1px rgba(34,197,94,.15),
-        0 12px 30px rgba(34,197,94,.18),
-        0 0 40px rgba(34,197,94,.18);
-}
-
-.page-home .value-card:hover::before {
-    opacity: 1;
-}
-
-/* Heading */
+.page-home .value-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.06); }
 .page-home .value-card h4 {
     font-size: 16px;
     font-weight: 600;
     color: #2c3e50;
     margin: 0 0 10px;
-    transition: color .3s ease;
 }
-
-.page-home .value-card:hover h4 {
-    color: #16a34a;
-}
-
-/* Paragraph */
 .page-home .value-card p {
     font-size: 14px;
     line-height: 1.75;
     color: #6b7280;
     margin: 0;
-    transition: color .3s ease;
 }
 
-.page-home .value-card:hover p {
-    color: #4b5563;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .page-home .values-light-grid,
-    .values-grid-7 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .page-home .values-light-grid,
-    .values-grid-7 {
-        grid-template-columns: 1fr;
-    }
-
-    .page-home .value-card {
-        padding: 24px 20px;
-    }
-}
-/* ==========================================
-   Services Section
-========================================== */
-
-.page-home .services-section {
-    background: #fff !important;
-}
-
+/* Services */
+.page-home .services-section { background: #fff !important; }
 .page-home .services-carousel .service-item {
-    position: relative;
-    overflow: hidden;
-    background: #fff;
     border: 1px solid #e8eaed;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
-    transition: all .35s ease;
+    box-shadow: none;
+    background: #fff;
 }
+.page-home .services-carousel .service-item .s-icon { color: #5c9e3a; font-size: 32px; }
+.page-home .services-carousel .service-item h5 { color: #2c3e50; }
 
-.page-home .services-carousel .service-item:hover {
-    transform: translateY(-8px);
-    border-color: #22c55e;
-
-    /* Outer Glow Only */
-    box-shadow:
-        0 0 0 1px rgba(34,197,94,.15),
-        0 12px 30px rgba(0,0,0,.08),
-        0 0 25px rgba(34,197,94,.30);
-}
-
-.page-home .services-carousel .service-item .s-icon {
-    color: #5c9e3a;
-    font-size: 32px;
-    transition: .35s ease;
-}
-
-.page-home .services-carousel .service-item:hover .s-icon {
-    color: #22c55e;
-    transform: scale(1.08);
-}
-
-.page-home .services-carousel .service-item h5 {
-    color: #2c3e50;
-    transition: .35s ease;
-}
-
-.page-home .services-carousel .service-item:hover h5 {
-    color: #16a34a;
-}
-
-
-/* ==========================================
-   Sectors
-========================================== */
-
+/* Sectors — lighter overlay */
 .page-home .case-card {
     height: 220px;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all .35s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
-
-.page-home .case-card:hover {
-    transform: translateY(-8px);
-
-    /* Outer Glow Only */
-    box-shadow:
-        0 0 0 1px rgba(34,197,94,.15),
-        0 14px 35px rgba(0,0,0,.08),
-        0 0 30px rgba(34,197,94,.30);
-}
-
-.page-home .case-card img {
-    opacity: .85;
-    transition: transform .4s ease, opacity .4s ease;
-}
-
-.page-home .case-card:hover img {
-    transform: scale(1.06);
-    opacity: 1;
-}
-
+.page-home .case-card img { opacity: .85; }
 .page-home .case-overlay {
-    background: linear-gradient(
-        transparent 40%,
-        rgba(44,62,80,.75)
-    );
+    background: linear-gradient(transparent 40%, rgba(44,62,80,.75));
 }
-
-.page-home .case-overlay .cat {
-    color: #a8d87a;
-}
-
-.page-home .case-overlay h5 {
-    font-size: 14px;
-}
-
-
-/* ==========================================
-   Buttons
-========================================== */
-
-.page-home .btn,
-.page-home .theme-btn,
-.page-home .btn-primary,
-.page-home .primary-btn,
-.page-home .main-btn,
-.page-home a.btn {
-
-    background: #0f2b6b;
-    color: #fff;
-    border: 2px solid #0f2b6b;
-    border-radius: 6px;
-
-    transition: all .35s ease;
-}
-
-.page-home .btn:hover,
-.page-home .theme-btn:hover,
-.page-home .btn-primary:hover,
-.page-home .primary-btn:hover,
-.page-home .main-btn:hover,
-.page-home a.btn:hover {
-
-    background: #22c55e !important;
-    border-color: #22c55e !important;
-    color: #fff !important;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 25px rgba(34,197,94,.35);
-}
+.page-home .case-overlay .cat { color: #a8d87a; }
+.page-home .case-overlay h5 { font-size: 14px; }
 
 /* Experience — white stats band */
-/* ==========================================
-   Experience Section
-========================================== */
-
 .page-home .experience-section {
     background: #fff !important;
     border-top: 1px solid #eef0f3;
     border-bottom: 1px solid #eef0f3;
-    padding: 70px 0;
+    padding: 80px 0;
 }
-
-/* Heading */
 .page-home .experience-section h2 {
     color: #2c3e50 !important;
     font-size: 32px;
-    margin-bottom: 45px;
-    text-align: center;
+    margin-bottom: 48px;
 }
-
-/* Stat Box */
-.page-home .exp-stat {
-    background: #fff;
-    border: 1px solid #e8eaed;
-    border-radius: 10px;
-
-    padding: 20px 12px;      /* Smaller Box */
-    margin: 0 8px;           /* Gap between boxes */
-
-    text-align: center;
-
-    transition: all .35s ease;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-
-/* Hover */
-.page-home .exp-stat:hover {
-    background: #22c55e;
-    border-color: #22c55e;
-
-    transform: translateY(-6px);
-
-    box-shadow: 0 10px 25px rgba(34,197,94,.30);
-}
-
-/* Number */
 .page-home .exp-stat h3 {
     color: #2c3e50 !important;
-    font-size: 34px;     /* Smaller */
-    margin-bottom: 8px;
-    transition: .35s;
+    font-size: 42px;
 }
-
-.page-home .exp-stat h3 span {
-    color: #7bc74d;
-    transition: .35s;
+.page-home .exp-stat h3 span { color: #7bc74d; }
+.page-home .exp-stat p { color: #6b7280 !important; }
+.page-home .exp-stat {
+    padding: 24px 16px;
+    border-right: 1px solid #eef0f3;
 }
-
-/* Text */
-.page-home .exp-stat p {
-    color: #6b7280 !important;
-    font-size: 14px;
-    margin: 0;
-    transition: .35s;
-}
-
-/* Hover Text */
-.page-home .exp-stat:hover h3,
-.page-home .exp-stat:hover h3 span,
-.page-home .exp-stat:hover p {
-    color: #fff !important;
-}
+.page-home .exp-stat:last-child { border-right: none; }
 
 /* Clients */
-/* ==========================================
-   Clients Section
-========================================== */
-
-.page-home #clients{
-    background:#f7f8fa !important;
+.page-home #clients { background: #f7f8fa !important; }
+.page-home .client-logo-item {
+    background: #fff;
+    border: 1px solid #e8eaed;
+    box-shadow: none;
 }
-
-.page-home .client-logo-item{
-    background:#fff;
-    border:1px solid #e8eaed;
-    border-radius:10px;
-    padding:20px;
-
-    height:140px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    transition:all .35s ease;
-}
-
-/* Green Glow */
-.page-home .client-logo-item:hover{
-    transform:translateY(-6px);
-
-    border-color:#22c55e;
-
-    box-shadow:
-        0 0 0 1px rgba(34,197,94,.15),
-        0 10px 25px rgba(34,197,94,.20),
-        0 0 28px rgba(34,197,94,.28);
-}
-
-/* All Logos */
-.page-home .client-logo-item img{
-    width:180px;
-    max-width:100%;
-    max-height:90px;
-    height:auto;
-
-    object-fit:contain;
-
-    transition:transform .35s ease;
-}
-
-/* Hover Zoom */
-.page-home .client-logo-item:hover img{
-    transform:scale(1.08);
-}
-
-/* ==========================================
-   ONLY image5
-========================================== */
-
-.page-home .client-logo-item img[src*="image5.jpg"]{
-
-    width:auto !important;
-    height:120px !important;
-
-    max-width:95% !important;
-    max-height:none !important;
-
-    object-fit:contain;
-
-    transform:scale(1.35);
-}
-
-/* Keep image5 same size on hover */
-.page-home .client-logo-item:hover img[src*="image5.jpg"]{
-    transform:scale(1.35);
-}
+.page-home .client-logo-item img { filter: none; opacity: 1; }
 
 /* Why choose */
 .page-home .why-card {
@@ -703,46 +304,15 @@
 }
 
 /* Buttons — softer on home content */
-/* ==========================================
-   View All Services Button
-========================================== */
-
-.page-home .btn-outline{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    padding:14px 30px;
-
-    background:#fff;
-    /* color:#0f2b6b; */
-
-    /* border:2px solid #0f2b6b; */
-    border-radius:8px;
-
-    font-weight:600;
-    text-decoration:none;
-
-    transition:all .35s ease;
+.page-home #main-content .btn-outline {
+    border-color: #d0d5dd;
+    color: #4a5568;
+    font-size: 13px;
 }
-
-.page-home .btn-outline i{
-    transition:transform .35s ease;
-}
-
-.page-home .btn-outline:hover{
-    background:#22c55e !important;
-    border-color:#22c55e !important;
-    color:#fff !important;
-
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 10px 25px rgba(34,197,94,.35);
-}
-
-.page-home .btn-outline:hover i{
-    transform:translateX(6px);
+.page-home #main-content .btn-outline:hover {
+    background: #f0f7eb;
+    border-color: #7bc74d;
+    color: #2c3e50;
 }
 
 /* Footer stays dark but softer */

@@ -122,6 +122,31 @@
         });
     }
 
+    /* Generic card sliders (sectors, values, PRD difference) */
+    if ($('.cards-carousel').length) {
+        $('.cards-carousel').each(function () {
+            var $c = $(this);
+            var big = parseInt($c.attr('data-items'), 10) || 3;
+            $c.owlCarousel({
+                loop: true,
+                margin: 24,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplayHoverPause: true,
+                smartSpeed: 600,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    992: { items: big >= 4 ? 3 : big },
+                    1200: { items: big }
+                }
+            });
+        });
+    }
+
     /* Sector filter */
     $('.filter-tabs a').on('click', function (e) {
         e.preventDefault();

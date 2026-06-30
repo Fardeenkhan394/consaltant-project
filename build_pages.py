@@ -3,6 +3,7 @@ import os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 LOGO = 'images/logo.png'
+LOGO_HEADER = 'images/logo-trans.png'
 WHATSAPP_UK = '447304150461'
 PHONE_UK = '+44 7304 150 461'
 PHONE_UK_TEL = '+447304150461'
@@ -60,7 +61,7 @@ def header(active, prefix=''):
     return f'''<header id="header">
 <div class="header-box"><div class="container">
 <div class="header-top-row">
-<div class="logo-box"><div class="logo logo-desktop"><a href="{home}"><img src="{prefix}{LOGO}" alt="PRD Consultants (Pvt.) Ltd" class="site-logo"></a></div></div>
+<div class="logo-box"><div class="logo logo-desktop"><a href="{home}"><img src="{prefix}{LOGO_HEADER}" alt="PRD Consultants (Pvt.) Ltd" class="site-logo"></a></div></div>
 <div class="header-phones hide_on_mobile">
 <a href="tel:{PHONE_UK_TEL}" class="header-phone"><span class="header-phone__label">UK</span><span class="header-phone__num">{PHONE_UK}</span></a>
 <a href="tel:{PHONE_ISB_TEL}" class="header-phone"><span class="header-phone__label">Islamabad</span><span class="header-phone__num">{PHONE_ISB}</span></a>
@@ -162,7 +163,7 @@ CLIENTS = [
     ('image6.png','IOM UN Migration'),('image12.jpeg','European Union'),('image13.png','Save the Children'),
     ('image8.png','Government of Sindh'),('image9.jpeg','Agriculture Department Sindh'),
     ('image10.png','Sindh Agricultural Growth Project'),('image7.png','ICT Agricultural Extension Services'),
-    ('image5.jpeg','Development Partner'),
+    ('image5.jpg','Development Partner'),
 ]
 
 def clients_grid():
@@ -208,6 +209,22 @@ def sectors_grid(with_filter=False):
         )
     return '<div class="cases-grid">' + ''.join(items) + '</div>'
 
+def sectors_carousel():
+    items = []
+    for img, group, cat, title, desc in SECTOR_CARDS:
+        alt = title.replace('&', '&amp;')
+        cat_html = cat.replace('&', '&amp;')
+        title_html = title.replace('&', '&amp;')
+        desc_html = desc.replace('&', '&amp;')
+        items.append(
+            f'<div class="case-card">'
+            f'<img src="images/sectors/{img}" alt="{alt}">'
+            f'<div class="case-overlay"><span class="cat">{cat_html}</span><h5>{title_html}</h5>'
+            f'<p>{desc_html}</p></div>'
+            f'</div>'
+        )
+    return '<div class="owl-carousel cards-carousel" data-items="4">' + ''.join(items) + '</div>'
+
 VALUES = [
     ('Integrity', 'We uphold the highest standards of ethics, professionalism, transparency, and accountability in all our engagements.'),
     ('Excellence', 'We are committed to delivering high-quality services, technical excellence, and results that create meaningful value for our clients and partners.'),
@@ -222,6 +239,18 @@ def values_grid():
     cards = ''.join(
         f'<div class="value-card"><h4>{t}</h4><p>{d}</p></div>' for t, d in VALUES)
     return f'''<div class="values-light-grid values-grid-7">{cards}</div>'''
+
+VALUE_ICONS = {
+    'Integrity': 'fa-shield', 'Excellence': 'fa-trophy', 'Innovation': 'fa-lightbulb-o',
+    'Collaboration': 'fa-handshake-o', 'Inclusiveness': 'fa-users',
+    'Accountability': 'fa-check-square-o', 'Sustainability': 'fa-leaf',
+}
+
+def values_carousel():
+    cards = ''.join(
+        f'<div class="value-card value-card-slide"><div class="vc-icon"><i class="fa {VALUE_ICONS.get(t, "fa-star")}"></i></div><h4>{t}</h4><p>{d}</p></div>'
+        for t, d in VALUES)
+    return f'<div class="owl-carousel cards-carousel values-carousel-slider" data-items="3">{cards}</div>'
 
 # ─── INDEX ───
 index = head(
@@ -258,16 +287,32 @@ index = head(
 
 <main id="main-content">
 
+<section id="ceo-message" class="ceo-section reveal"><div class="container">
+<div class="section-header text-center"><span class="section-eyebrow">Who We Are</span><h2 class="section-title">Welcome to PRD Consultants</h2></div>
+<div class="ceo-pro-wrap">
+<aside class="ceo-pro-aside">
+<div class="ceo-pro-photo"><img src="images/image2.jpeg" alt="Aftab A. Solangi, Chief Executive Officer"></div>
+<div class="ceo-pro-id"><h4>Aftab A. Solangi</h4><p>Chief Executive Officer</p></div>
+</aside>
+<div class="ceo-pro-body">
+<i class="fa fa-quote-left ceo-quote-mark"></i>
+<p>Welcome to PRD Consultants (Private) Limited. As development challenges continue to evolve, organizations need trusted partners who can combine technical expertise with practical implementation experience. We bring together global perspectives, local knowledge, and evidence-based approaches to help governments, development partners, international organizations, NGOs, and private sector institutions achieve sustainable and measurable results.</p>
+<p>Our strength lies in understanding both the strategic and operational dimensions of development, enabling us to deliver solutions that are practical, innovative, and responsive to real-world challenges.</p>
+<p>We are committed to professionalism, integrity, partnership, and continuous learning, and we look forward to working with our clients and partners to strengthen institutions, improve programme performance, and contribute to sustainable development outcomes.</p>
+</div>
+</div></div></section>
+
 <section id="org-intro" class="org-intro section-sm reveal"><div class="container">
-<div class="row"><div class="col-md-8 col-md-offset-2 text-center">
-<span class="section-eyebrow">PRD Consultants (Private) Limited</span>
-<h2 class="section-title" style="font-size:28px">Development Consulting | Research | Technical Assistance | Project Management | Monitoring, Evaluation, Accountability &amp; Learning (MEAL)</h2>
-<p class="org-lead">PRD Consultants is an international development consulting and advisory firm operating through registered entities in the United Kingdom and Pakistan. PRD Consultants Ltd is registered with Companies House under the laws of England and Wales, while PRD Consultants (Private) Limited is incorporated under the corporate laws of Pakistan and registered with the Securities and Exchange Commission of Pakistan (SECP). Originally established under the Companies Ordinance, 1984, the company is currently governed by the Companies Act, 2017.</p>
+<div class="row"><div class="col-md-10 col-md-offset-1 text-center">
+<span class="section-eyebrow">The Organization</span>
+<h2 class="section-title">PRD Consultants (Private) Limited</h2>
+<p class="org-lead">PRD Consultants is an international development consulting and advisory firm operating through registered entities in the United Kingdom and Pakistan. PRD Consultants Ltd is registered with Companies House under the laws of England and Wales, while PRD Consultants (Private) Limited is incorporated under the corporate laws of Pakistan and registered with the Securities and Exchange Commission of Pakistan (SECP), currently governed by the Companies Act, 2017.</p>
 <p class="org-lead">Building on more than a decade of development and humanitarian experience through Partners for Research and Development (PRD), PRD Consultants combines practical field knowledge with professional consulting expertise to support governments, development partners, donor-funded programmes, international organizations, NGOs, research institutions, and private sector organizations.</p>
+<p class="org-lead">Supported by a multidisciplinary network of national and international experts, the firm delivers evidence-based, innovative, and context-sensitive solutions that help organizations strengthen institutions, improve programme performance, enhance accountability, and achieve sustainable development outcomes.</p>
 <p class="org-tagline"><strong>Delivering Evidence-Based Solutions for Sustainable Development, Institutional Strengthening, and Lasting Impact.</strong></p>
 </div></div></div></section>
 
-<section id="what-we-do" class="section reveal"><div class="container">
+<section id="what-we-do" class="section section-alt reveal"><div class="container">
 <div class="section-header text-center"><span class="section-eyebrow">Our Expertise</span><h2 class="section-title">What we do</h2></div>
 <div class="icon-box-grid">
 <div class="icon-box-col"><div class="icon-box"><div class="ib-icon"><i class="fa fa-line-chart"></i></div><h4>Development Consulting</h4><p>Strategic advisory services that strengthen institutions and improve programme performance.</p></div></div>
@@ -276,23 +321,9 @@ index = head(
 <div class="icon-box-col"><div class="icon-box"><div class="ib-icon"><i class="fa fa-tasks"></i></div><h4>Project Management &amp; MEAL</h4><p>End-to-end delivery with monitoring, evaluation, accountability and learning.</p></div></div>
 </div>''' + cta('Explore All Services', 'services.html') + '</div></section>\n'
 
-index += '''<section id="about" class="section reveal"><div class="container"><div class="row">
-<div class="col-md-6"><span class="section-eyebrow">Who We Are</span><h2 class="section-title">About us<span class="subtitle">From Development Practice to Development Consulting</span></h2>
-<div class="about-text">
-<p>PRD Consultants Ltd is registered with Companies House under the laws of England and Wales. PRD Consultants (Private) Limited is incorporated under the corporate laws of Pakistan and registered with the Securities and Exchange Commission of Pakistan (SECP). Originally established under the Companies Ordinance, 1984, the company is currently governed by the Companies Act, 2017.</p>
-<p>Through its United Kingdom Head Office and Pakistan operations, PRD Consultants provides consulting, research, technical assistance, project management, monitoring, evaluation, accountability and learning (MEAL), institutional strengthening, and strategic advisory services across a broad range of development sectors.</p>
-</div>
-<div class="stats-row">
-<div class="stat-item"><h3>2010</h3><p>Founded through PRD legacy</p></div>
-<div class="stat-item"><h3 class="counter" data-target="15">0<span>+</span></h3><p>Years of experience</p></div>
-<div class="stat-item"><h3 class="counter" data-target="8">0<span>+</span></h3><p>Development sectors</p></div>
-</div>''' + cta('Read Full Story', 'about.html') + '''</div>
-<div class="col-md-6 about-img"><img src="images/image2.jpeg" alt="PRD Consultants Leadership"></div>
-</div></div></section>
-
-<section id="values" class="values-section reveal"><div class="container">
+index += '''<section id="values" class="values-section reveal"><div class="container">
 <div class="section-header text-center"><span class="section-eyebrow">What We Stand For</span><h2 class="section-title">Our Values</h2></div>
-''' + values_grid() + '''</div></section>
+''' + values_carousel() + '''</div></section>
 
 <section id="services" class="section services-section reveal"><div class="container">
 <div class="section-header text-center"><span class="section-eyebrow">What We Offer</span><h2 class="section-title">Our Services</h2></div>
@@ -306,7 +337,7 @@ index += '''<section id="about" class="section reveal"><div class="container"><d
 
 index += '''<section id="sectors" class="section reveal"><div class="container">
 <div class="section-header text-center"><span class="section-eyebrow">Industries</span><h2 class="section-title">Sector Expertise<span class="subtitle">Experience across development sectors</span></h2></div>
-''' + sectors_grid() + cta('Explore All Sectors', 'sectors.html') + '''</div></section>
+''' + sectors_carousel() + cta('Explore All Sectors', 'sectors.html') + '''</div></section>
 
 <section id="experience" class="experience-section reveal"><div class="container">
 <h2>Experience Built Through Practice, Partnership, and Impact</h2>
@@ -321,25 +352,14 @@ index += '''<section id="sectors" class="section reveal"><div class="container">
 <div class="section-header text-center"><span class="section-eyebrow">Partnerships</span><h2 class="section-title">Our Clients &amp; Partners</h2></div>
 ''' + clients_grid() + cta('View All Partners', 'clients.html') + '''</div></section>
 
-<section id="why-choose" class="section"><div class="container">
-<div class="section-header text-center"><h2 class="section-title">The PRD Difference</h2></div>
-<div class="why-grid">
-<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-globe"></i></div><h4>Field Experience</h4><p>Practical understanding gained through direct engagement with communities and development programmes.</p></div></div>
-<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-certificate"></i></div><h4>Technical Expertise</h4><p>Professional capabilities in research, evaluation, advisory services, and institutional development.</p></div></div>
-<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-handshake-o"></i></div><h4>Partnership Approach</h4><p>A commitment to working collaboratively with clients, stakeholders, and communities.</p></div></div>
-<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-bar-chart"></i></div><h4>Evidence-Based Practice</h4><p>A focus on data, learning, accountability, and measurable results.</p></div></div>
-<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-map"></i></div><h4>Local Understanding with International Standards</h4><p>Solutions that are context-sensitive while aligned with global development practices.</p></div></div>
-</div></div></section>
-
-<section id="ceo-message" class="testimonial-section reveal"><div class="container">
-<div class="ceo-light-wrap">
-<img src="images/image2.jpeg" alt="Aftab A. Solangi, Chief Executive Officer">
-<div>
-<p class="quote-text">Welcome to PRD Consultants (Private) Limited. As development challenges continue to evolve, organizations need trusted partners who can combine technical expertise with practical implementation experience. At PRD Consultants, we bring together global perspectives, local knowledge, and evidence-based approaches to help governments, development partners, international organizations, NGOs, and private sector institutions achieve sustainable and measurable results.</p>
-<p class="quote-text" style="font-style:normal;margin-top:16px">Our strength lies in understanding both the strategic and operational dimensions of development, enabling us to deliver solutions that are practical, innovative, and responsive to real-world challenges.</p>
-<p class="quote-text" style="font-style:normal;margin-top:16px">We are committed to professionalism, integrity, partnership, and continuous learning, and we look forward to working with our clients and partners to strengthen institutions, improve programme performance, and contribute to sustainable development outcomes.</p>
-<div class="author"><h4>Aftab A. Solangi</h4><p>Chief Executive Officer, PRD Consultants</p></div>
-</div>
+<section id="why-choose" class="section section-alt"><div class="container">
+<div class="section-header text-center"><span class="section-eyebrow">Why PRD</span><h2 class="section-title">The PRD Difference</h2></div>
+<div class="owl-carousel cards-carousel" data-items="3">
+<div class="why-card"><div class="w-icon"><i class="fa fa-globe"></i></div><h4>Field Experience</h4><p>Practical understanding gained through direct engagement with communities and development programmes.</p></div>
+<div class="why-card"><div class="w-icon"><i class="fa fa-certificate"></i></div><h4>Technical Expertise</h4><p>Professional capabilities in research, evaluation, advisory services, and institutional development.</p></div>
+<div class="why-card"><div class="w-icon"><i class="fa fa-handshake-o"></i></div><h4>Partnership Approach</h4><p>A commitment to working collaboratively with clients, stakeholders, and communities.</p></div>
+<div class="why-card"><div class="w-icon"><i class="fa fa-bar-chart"></i></div><h4>Evidence-Based Practice</h4><p>A focus on data, learning, accountability, and measurable results.</p></div>
+<div class="why-card"><div class="w-icon"><i class="fa fa-map"></i></div><h4>Local Understanding with International Standards</h4><p>Solutions that are context-sensitive while aligned with global development practices.</p></div>
 </div></div></section>
 
 <section id="careers" class="section"><div class="container">
@@ -363,7 +383,7 @@ index += '''<section id="sectors" class="section reveal"><div class="container">
 </div></div></div>''' + cta('Learn More', 'where-we-work.html') + '''</div></section>
 
 <section id="publications" class="section section-alt"><div class="container">
-<div class="section-header text-center"><h2 class="section-title">Publications &amp; Insights</h2></div>
+<div class="section-header text-center"><span class="section-eyebrow">Knowledge &amp; Insights</span><h2 class="section-title">Publications &amp; Insights<span class="subtitle">Stay updated with the latest developments, achievements, and activities of PRD Consultants — including project milestones, publications, partnerships, events, and knowledge-sharing initiatives across the development sector.</span></h2></div>
 <ul class="pub-list">
 <li><span class="pub-icon"><i class="fa fa-file-text-o"></i></span><div><h5>Onion Research Study Sindh</h5><p>Research &amp; Reports</p></div></li>
 <li><span class="pub-icon"><i class="fa fa-file-text-o"></i></span><div><h5>Development of PC-1 for the Sindh Water and Agriculture Transformation Project</h5><p>Agriculture Department, Government of Sindh</p></div></li>
@@ -415,6 +435,63 @@ about += '<div id="wrapper">' + header('about') + page_hero('About Us', 'From De
 <div class="accordion-panel"><div class="accordion-head"><h4>Our Approach</h4><i class="fa fa-chevron-down"></i></div>
 <div class="accordion-body"><p>We believe sustainable development is achieved through collaboration, evidence-based decision-making, innovation, and accountability. Our approach combines local knowledge and contextual understanding with international standards and best practices.</p></div></div>
 </div></div></div></section>
+<section class="section section-alt"><div class="container">
+<div class="section-header text-center"><span class="section-eyebrow">Experience &amp; Credentials</span><h2 class="section-title">Experience Built Through Practice, Partnership, and Impact</h2></div>
+<div class="content-block">
+<p>PRD Consultants brings together years of development practice, humanitarian engagement, and professional consulting expertise to support organizations in designing, implementing, monitoring, and improving development interventions. Our experience is rooted in the legacy of Partners for Research and Development (PRD), engaged in humanitarian assistance, community development, public health, research, training, and social development initiatives since 2010.</p>
+<h3>Humanitarian and Community Development Experience</h3>
+<p>During the devastating floods of 2010 and 2011 in Sindh, PRD implemented humanitarian response and early recovery initiatives to support affected and vulnerable communities, gaining valuable experience in emergency coordination, community engagement, service delivery, and recovery planning. Key areas of engagement included:</p>
+<ul>
+<li>Emergency relief assistance for flood-affected communities</li>
+<li>Distribution of food and non-food assistance to displaced and vulnerable populations</li>
+<li>Support for safe drinking water, basic humanitarian needs, and community services</li>
+<li>Community-based health promotion and awareness initiatives</li>
+<li>Maternal and child health and nutrition awareness activities</li>
+<li>Community mobilization and volunteer-led support mechanisms</li>
+<li>Coordination with local institutions, government stakeholders, and humanitarian partners</li>
+</ul>
+<h3>Research and Evidence Generation</h3>
+<p>PRD Consultants supports organizations in generating reliable evidence to inform policies, strategies, programmes, and investment decisions. Our research capabilities include:</p>
+<ul>
+<li>Socioeconomic and household surveys</li>
+<li>Baseline, midline, and endline assessments</li>
+<li>Needs assessments and vulnerability analysis</li>
+<li>Market and institutional assessments</li>
+<li>Feasibility studies and sector research</li>
+<li>Quantitative and qualitative data collection and analysis</li>
+<li>Evidence-based reporting, knowledge products, and learning documentation</li>
+</ul>
+<h3>Technical Assistance and Institutional Strengthening</h3>
+<p>We support organizations in strengthening their systems, improving programme effectiveness, and enhancing institutional capacity through tailored technical assistance and advisory services, including:</p>
+<ul>
+<li>Programme design, review, and improvement strategies</li>
+<li>Institutional capacity assessments and strengthening initiatives</li>
+<li>Strategic planning and operational support</li>
+<li>Policy analysis, development, and advisory services</li>
+<li>Development of manuals, guidelines, frameworks, and standard operating procedures</li>
+<li>Training, knowledge transfer, and organizational development</li>
+<li>Capacity building for institutions, teams, and stakeholders</li>
+</ul>
+</div>
+</div></section>
+<section id="leadership" class="section"><div class="container">
+<div class="section-header text-center"><span class="section-eyebrow">Our Team</span><h2 class="section-title">Leadership &amp; Expert Network</h2></div>
+<div class="content-block" style="max-width:900px;margin:0 auto;text-align:center">
+<p>PRD Consultants is supported by a multidisciplinary network of national and international experts with extensive experience across diverse development sectors. Our experts bring specialized knowledge and practical experience in areas including agriculture and rural development, livelihoods, governance, health, education, climate resilience, social protection, humanitarian response, monitoring and evaluation, and institutional development.</p>
+<p>This diverse expertise enables PRD Consultants to assemble context-specific teams and provide high-quality technical solutions tailored to the needs of each assignment and client.</p>
+</div>
+<div class="ceo-pro-wrap" style="margin-top:40px">
+<aside class="ceo-pro-aside">
+<div class="ceo-pro-photo"><img src="images/image2.jpeg" alt="Aftab A. Solangi, Chief Executive Officer"></div>
+<div class="ceo-pro-id"><h4>Aftab A. Solangi</h4><p>Chief Executive Officer</p></div>
+</aside>
+<div class="ceo-pro-body">
+<i class="fa fa-quote-left ceo-quote-mark"></i>
+<p>Our strength lies in understanding both the strategic and operational dimensions of development, enabling us to deliver solutions that are practical, innovative, and responsive to real-world challenges. We are committed to professionalism, integrity, partnership, and continuous learning.</p>
+<p>As PRD Consultants continues to grow, our commitment remains focused on helping organizations transform ideas into action, evidence into informed decisions, and investments into meaningful development outcomes.</p>
+</div>
+</div>
+</div></section>
 <section class="values-section section-sm"><div class="container">
 <div class="section-header text-center"><h2 class="section-title" style="color:#fff">Our Values</h2></div>
 ''' + values_grid() + '''
@@ -495,6 +572,17 @@ clients += '<div id="wrapper">' + header('clients') + page_hero('Clients &amp; P
 <div class="clients-showcase"><img src="images/image3.png" alt="PRD Consultants Clients and Partners"></div>
 <h3 class="section-title text-center" style="margin:50px 0 30px">Our Partners</h3>
 ''' + clients_grid() + '''
+<div class="content-block" style="max-width:900px;margin:60px auto 0;text-align:center">
+<h3>Institutional &amp; Development Partnerships</h3>
+<p>Over the years, PRD and its leadership have engaged with a diverse range of development stakeholders, contributing technical expertise, research, implementation support, monitoring and evaluation, and advisory services to donor-supported programmes, United Nations initiatives, and World Bank-funded projects:</p>
+</div>
+<div class="why-grid" style="margin-top:30px">
+<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-globe"></i></div><h4>UN &amp; International Partners</h4><p>United Nations agencies and international development partners.</p></div></div>
+<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-university"></i></div><h4>Development Institutions</h4><p>Multilateral and bilateral development institutions.</p></div></div>
+<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-building-o"></i></div><h4>Government</h4><p>Government ministries, departments, and public sector organizations.</p></div></div>
+<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-users"></i></div><h4>NGOs &amp; Civil Society</h4><p>International and national NGOs, humanitarian agencies, and civil society organizations.</p></div></div>
+<div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-flask"></i></div><h4>Research &amp; Academia</h4><p>Research institutions and academic organizations.</p></div></div>
+</div>
 <div class="why-grid" style="margin-top:60px">
 <div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-globe"></i></div><h4>Field Experience</h4><p>Practical understanding gained through direct engagement with communities and development programmes.</p></div></div>
 <div class="why-item"><div class="why-card"><div class="w-icon"><i class="fa fa-certificate"></i></div><h4>Technical Expertise</h4><p>Professional capabilities in research, evaluation, advisory services, and institutional development.</p></div></div>
@@ -617,6 +705,10 @@ pubs = head('Publications & Insights | PRD Consultants – Research & Reports',
     'PRD publications, research reports Sindh, agricultural studies Pakistan')
 pubs += '<div id="wrapper">' + header('publications') + page_hero('Publications &amp; Insights', 'Knowledge &amp; Insights', bg='images/hero-page-2.jpg') + '''
 <section class="section"><div class="container">
+<div class="content-block" style="max-width:860px;margin:0 auto 40px;text-align:center">
+<p>Stay updated with the latest developments, achievements, and activities of PRD Consultants. This section highlights our organizational updates, project milestones, publications, partnerships, events, and knowledge-sharing initiatives across the development sector.</p>
+<p>Through our news and updates, we share insights from our work, celebrate collaborations with partners, and highlight contributions toward evidence-based solutions, institutional strengthening, and sustainable development.</p>
+</div>
 <ul class="pub-list">
 <li><span class="pub-icon"><i class="fa fa-file-text-o"></i></span><div><h5>Onion Research Study Sindh</h5><p>Research &amp; Reports</p></div></li>
 <li><span class="pub-icon"><i class="fa fa-file-text-o"></i></span><div><h5>Development of PC-1 for the Sindh Water and Agriculture Transformation Project</h5><p>Agriculture Department, Government of Sindh</p></div></li>
