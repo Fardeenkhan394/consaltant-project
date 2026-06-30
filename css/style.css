@@ -1759,14 +1759,28 @@ body.nav-open::before {
     .ceo-pro-aside { flex-direction: column; align-items: flex-start; text-align: left; }
     .copyright-row { justify-content: center; text-align: center; }
     .clients-logo-grid { grid-template-columns: repeat(2, 1fr); }
-    .header_transparent .hero-slide .container { padding-top: 120px; padding-bottom: 50px; }
-    .hero-caption { left: 24px !important; right: 24px !important; text-align: left !important; transform: translateY(-50%) !important; }
-    .header_transparent .hero-caption { transform: none !important; margin-left: 0 !important; margin-right: 0 !important; }
-    .header_transparent .hero-caption.right { margin-right: 0 !important; }
-    .hero-caption.center, .hero-caption.right { text-align: left !important; }
-    .hero-caption p { font-size: 15px; }
+    #hero { height: auto; min-height: 78vh; max-height: none; }
+    .header_transparent .hero-slide .container { padding-top: 110px; padding-bottom: 56px; align-items: center; }
+    .hero-caption,
+    .hero-caption.center,
+    .hero-caption.right {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100%;
+        text-align: left !important;
+    }
+    .hero-caption p,
+    .hero-caption.center p,
+    .hero-caption.right p { margin-left: 0 !important; margin-right: 0 !important; max-width: 100%; font-size: 15px; }
+    .hero-btns,
+    .hero-btns.center,
+    .hero-btns.right { justify-content: flex-start !important; }
     .hero-btns a { font-size: 12px; line-height: 44px; padding: 0 22px; }
-    #hero { min-height: 500px; height: 88vh; }
     .contact-form-wrap { padding: 28px 22px; }
     .stat-item { padding-right: 0; }
     .map-frame iframe { height: 300px; }
@@ -1776,6 +1790,9 @@ body.nav-open::before {
 
 /* ─── MOBILE & TABLET POLISH (all pages) ─── */
 @media (max-width: 991px) {
+    #hero { height: auto; min-height: 70vh; max-height: none; }
+    .header_transparent .hero-slide .container { padding-top: 130px; padding-bottom: 60px; align-items: center; }
+    .hero-caption h1 { font-size: clamp(28px, 5.5vw, 40px); }
     .section-header { margin-bottom: 40px; }
     .section-title { font-size: clamp(24px, 4.5vw, 32px); }
     .section-title .subtitle { font-size: 14px; line-height: 1.65; }
@@ -1824,9 +1841,14 @@ body.nav-open::before {
 }
 
 @media (max-width: 480px) {
+    #hero { min-height: 86vh; }
+    .header_transparent .hero-slide .container { padding-top: 100px; padding-bottom: 44px; }
     .hero-caption h1 { font-size: 24px !important; line-height: 1.25 !important; }
-    .hero-caption .eyebrow { font-size: 10px; }
-    .hero-btns { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+    .hero-caption .eyebrow { font-size: 10px; margin-bottom: 14px; }
+    .hero-caption p { font-size: 14px; margin-bottom: 26px; }
+    .hero-btns,
+    .hero-btns.center,
+    .hero-btns.right { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
     .hero-btns a { width: 100%; text-align: center; margin: 0 !important; }
     .clients-logo-grid { gap: 12px; }
     .client-logo-item { min-height: 86px; padding: 12px; }
