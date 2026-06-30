@@ -62,8 +62,8 @@
     box-shadow: 0 1px 3px rgba(0,0,0,.04);
 }
 .page-home .icon-box:hover {
-    border-color: #d0d5dd;
-    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
     transform: translateY(-3px);
 }
 .page-home .icon-box .ib-icon {
@@ -110,7 +110,11 @@
     padding: 28px 24px;
     transition: box-shadow .3s ease;
 }
-.page-home .value-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+.page-home .value-card:hover {
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
+    transform: translateY(-3px);
+}
 .page-home .value-card h4 {
     font-size: 16px;
     font-weight: 600;
@@ -302,6 +306,25 @@
     border-top: 3px solid #7bc74d;
     box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
+.page-home .map-card:hover {
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
+}
+.page-home .why-card:hover {
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
+}
+.page-home .case-card:hover {
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.2);
+}
+.page-home .client-logo-item:hover {
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
+}
+.page-home .services-carousel .service-item:hover {
+    border-color: rgba(123, 199, 77, 0.42);
+    box-shadow: 0 10px 28px rgba(123, 199, 77, 0.16);
+}
 
 /* Buttons — softer on home content */
 .page-home #main-content .btn-outline {
@@ -327,9 +350,27 @@
     .values-grid-7 { grid-template-columns: 1fr 1fr; }
     .page-home .ceo-light-wrap { flex-direction: column; text-align: center; padding: 32px 24px; }
     .page-home .exp-stat { border-right: none; border-bottom: 1px solid #eef0f3; padding-bottom: 20px; margin-bottom: 10px; }
+    .page-home .ceo-pro-wrap { padding: 28px 22px; }
+    .page-home .case-card { height: 240px; }
 }
 @media (max-width: 767px) {
     .page-home .values-light-grid,
     .values-grid-7 { grid-template-columns: 1fr; }
-    .page-home .section { padding: 60px 0; }
+    .page-home .section { padding: 56px 0; }
+    .page-home .section-sm { padding: 48px 0; }
+    .page-home .ceo-section { padding: 56px 0; }
+    .page-home .ceo-pro-wrap { padding: 22px 16px; gap: 20px; }
+    .page-home .experience-section { padding: 56px 0; }
+    .page-home .experience-section h2 { font-size: 22px; margin-bottom: 32px; }
+    .page-home .exp-stat h3 { font-size: 34px; }
+    .page-home .org-lead { font-size: 15px; }
+    .page-home .case-card { height: 220px; }
+    .page-home .services-carousel .service-item { padding: 28px 16px; }
+    .page-home .value-card-slide { min-height: auto; padding: 22px 18px; }
+    .page-home .section-title .subtitle { font-size: 14px; margin-top: 12px; }
+}
+@media (max-width: 480px) {
+    .page-home .clients-logo-grid { gap: 12px; }
+    .page-home .client-logo-item { min-height: 88px; padding: 12px; }
+    .page-home .career-card { padding: 32px 16px; }
 }
