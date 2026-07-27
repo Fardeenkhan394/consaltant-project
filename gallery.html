@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | PRD Consultants Ã¢â‚¬â€œ Events, Team &amp; Impact Moments</title>
+  <meta name="description"
+    content="Explore PRD Consultants gallery Ã¢â‚¬â€œ a visual journey through our events, team activities, field operations, and impact moments across Pakistan and the UK.">
+  <meta name="keywords"
+    content="PRD Consultants gallery, events, team photos, development consulting Pakistan, field work, impact">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gallery | PRD Consultants Ã¢â‚¬â€œ Events, Team &amp; Impact Moments">
+  <meta property="og:description"
+    content="Explore PRD Consultants gallery Ã¢â‚¬â€œ a visual journey through our events, team activities, field operations, and impact moments across Pakistan and the UK.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <meta name="theme-color" content="#1a1f26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Encode+Sans+Expanded:wght@500;600;700&amp;family=Encode+Sans+Semi+Expanded:wght@500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =============================================
+       GALLERY PAGE Ã¢â‚¬â€œ INLINE STYLES
+       ============================================= */
+
+    /* ---- Collage Hero ---- */
+    .gallery-hero-collage {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .ghc-bg {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 3px;
+      transform: scale(1.05);
+    }
+
+    .ghc-img {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.72;
+      filter: saturate(0.95) brightness(0.95);
+    }
+
+    .ghc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg,
+        rgba(26,31,38,0.72) 0%,
+        rgba(26,31,38,0.48) 55%,
+        rgba(26,31,38,0.35) 100%);
+      z-index: 1;
+    }
+
+    /* no bottom line */
+
+    .ghc-content {
+      position: relative;
+      z-index: 2;
+      padding: 72px 0 80px;
+      width: 100%;
+    }
+
+    .ghc-content .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 14px;
+    }
+
+    .ghc-content .breadcrumb-nav a {
+      color: var(--green);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .ghc-content .breadcrumb-nav a:hover { color: #fff; }
+    .ghc-content .breadcrumb-nav span   { color: rgba(255,255,255,0.40); margin: 0 6px; }
+
+    .ghc-content h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: #fff;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+    }
+
+    .ghc-content p {
+      font-size: 17px;
+      opacity: 0.90;
+      max-width: 680px;
+      margin: 0;
+      font-weight: 300;
+      line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-hero-collage { min-height: 260px; }
+      .ghc-content { padding: 52px 0 56px; }
+      .ghc-bg { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(4,1fr); }
+    }
+
+    /* ---- Filter Tabs (on white bg) ---- */
+    .gallery-filter-bar {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 32px;
+    }
+
+    .gallery-filter-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      width: 100%;
+    }
+
+    .gallery-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+      background: #f2f2f2;
+      border: 1.5px solid #ddd;
+      border-radius: 30px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+    }
+
+    .gallery-filter-btn:hover {
+      background: var(--green);
+      color: var(--dark);
+      border-color: var(--green);
+      font-weight: 600;
+    }
+
+    .gallery-filter-btn.active {
+      background: var(--green);
+      color: var(--dark);
+      border-color: var(--green);
+      font-weight: 700;
+    }
+
+    .count-badge {
+      background: rgba(0,0,0,0.10);
+      color: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      transition: all 0.25s;
+    }
+
+    /* ---- Gallery Section ---- */
+    .gallery-section {
+      padding: 48px 0 80px;
+      background: #fff;
+    }
+
+    .gallery-section-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .gallery-section-header .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark, #4f8c1a);
+      margin-bottom: 10px;
+    }
+
+    .gallery-section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .gallery-section-header p {
+      color: var(--text-light);
+      font-size: 16px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ---- UNIFORM GRID ---- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 260px;
+      gap: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; }
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #e0e0e0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+      transform: translateY(-3px);
+    }
+
+    .gallery-item.hidden { display: none !important; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease, filter 0.4s ease;
+      filter: brightness(1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.85);
+    }
+
+    /* permanent bottom gradient so tag is always readable */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        transparent 40%,
+        rgba(10,12,16,0.75) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* tag always visible at bottom-left */
+    .gallery-item__label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .gallery-item__tag {
+      display: inline-block;
+      background: var(--green);
+      color: var(--dark);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      padding: 4px 11px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    /* hover overlay Ã¢â‚¬â€ dark tint, no icon */
+    .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,12,16,0.42);
+      opacity: 0;
+      transition: opacity 0.35s var(--ease);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover .gallery-item__overlay { opacity: 1; }
+
+    /* green left border slide-up on hover */
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      width: 3px;
+      background: var(--green);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.38s var(--ease);
+      z-index: 4;
+    }
+
+    .gallery-item:hover::after { transform: scaleY(1); }
+
+    /* ---- Empty state ---- */
+    .gallery-empty {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+      display: none;
+    }
+
+    .gallery-empty.visible { display: block; }
+
+    .gallery-empty i {
+      font-size: 48px;
+      color: var(--border);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* ---- Lightbox ---- */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.97);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lightbox-inner img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: none;
+      filter: none;
+      transform: scale(0.96);
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .lightbox-overlay.active .lightbox-inner img { transform: scale(1); }
+
+    .lightbox-caption {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 13px;
+      text-align: center;
+      font-family: var(--font-body);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 26px;
+      width: 46px;
+      height: 46px;
+      background: rgba(0, 0, 0, 0.07);
+      border: 1.5px solid rgba(0, 0, 0, 0.14);
+      border-radius: 50%;
+      color: var(--dark);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.3s;
+      z-index: 10001;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(0, 0, 0, 0.14);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      border-radius: 50%;
+      color: var(--dark);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      z-index: 10001;
+    }
+
+    .lightbox-nav:hover {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--dark);
+    }
+
+    .lightbox-prev { left: 18px; }
+    .lightbox-next { right: 18px; }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 13px;
+      font-family: var(--font-body);
+      z-index: 10001;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-prev { left: 6px; }
+      .lightbox-next { right: 6px; }
+    }
+  </style>
+</head>
+
+<body class="site_layout_lisbon header_style_5 header_solid header_inverse sticky_menu">
+  <div id="wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+      <div class="header-box">
+        <div class="container">
+          <div class="header-top-row">
+            <div class="logo-box">
+              <div class="logo logo-desktop">
+                <a href="index.html"><img src="images/logo-trans.png" alt="PRD Consultants (Pvt.) Ltd" class="site-logo"></a>
+              </div>
+            </div>
+            <button type="button" class="menu-toggle" aria-label="Menu"><span></span></button>
+          </div>
+        </div>
+      </div>
+      <div class="nav-box">
+        <div class="container">
+          <ul class="main_menu_nav">
+            <li class="menu-item"><a href="index.html">Home</a></li>
+            <li class="menu-item"><a href="about.html">About Us</a></li>
+            <li class="menu-item"><a href="services.html">Services</a></li>
+            <li class="menu-item"><a href="sectors.html">Sectors</a></li>
+            <li class="menu-item"><a href="clients.html">Clients</a></li>
+            <li class="menu-item"><a href="leadership.html">Leadership</a></li>
+            <li class="menu-item"><a href="careers.html">Careers</a></li>
+            <li class="menu-item"><a href="news.html">News</a></li>
+            <li class="menu-item current-menu-item"><a href="gallery.html">Gallery</a></li>
+            <li class="menu-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="header-spacer" aria-hidden="true"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="gallery-hero-collage">
+      <!-- 8-photo mosaic background -->
+      <div class="ghc-bg" aria-hidden="true">
+        <div class="ghc-img" style="background-image:url('images/team/post1.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post5.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post10.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post15.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post3.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post8.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post13.jpeg')"></div>
+        <div class="ghc-img" style="background-image:url('images/team/post18.jpeg')"></div>
+      </div>
+      <div class="ghc-overlay" aria-hidden="true"></div>
+      <div class="container ghc-content">
+        <nav class="breadcrumb-nav"><a href="index.html">Home</a><span>/</span><span>Gallery</span></nav>
+        <h1>Our Gallery</h1>
+        <p>A visual record of our events, field engagements, team milestones, and the communities we serve &mdash; across Pakistan and the United Kingdom.</p>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY GRID ===== -->
+    <section class="gallery-section" aria-label="PRD Consultants photo gallery">
+      <div class="container">
+        <div class="gallery-section-header">
+          <span class="section-eyebrow">Photo Collection</span>
+          <h2>Our Visual Story</h2>
+          <p>Browse through events, team activities, and field operations captured across Pakistan and the UK.</p>
+        </div>
+
+        <!-- ===== FILTER BAR (below heading) ===== -->
+        <div class="gallery-filter-bar" role="navigation" aria-label="Gallery category filter">
+          <div class="container">
+            <button class="gallery-filter-btn active" data-filter="all" id="filter-all">
+              <i class="fa-solid fa-border-all"></i> All <span class="count-badge">21</span>
+            </button>
+            <button class="gallery-filter-btn" data-filter="events" id="filter-events">
+              <i class="fa-solid fa-calendar-days"></i> Events &amp; Workshops <span class="count-badge">8</span>
+            </button>
+            <button class="gallery-filter-btn" data-filter="team" id="filter-team">
+              <i class="fa-solid fa-people-group"></i> Team <span class="count-badge">7</span>
+            </button>
+            <button class="gallery-filter-btn" data-filter="field" id="filter-field">
+              <i class="fa-solid fa-map-location-dot"></i> Field Operations <span class="count-badge">6</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post1.jpeg" data-caption="PRD Consultants – Events &amp; Engagements">
+            <img src="images/team/post1.jpeg" alt="PRD Consultants event" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post2.jpeg" data-caption="PRD Consultants Team">
+            <img src="images/team/post2.jpeg" alt="PRD Consultants team" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post3.jpeg" data-caption="Field Operations – PRD Consultants">
+            <img src="images/team/post3.jpeg" alt="Field operations" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post4.jpeg" data-caption="PRD Consultants – Workshop &amp; Training">
+            <img src="images/team/post4.jpeg" alt="Workshop and training" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post5.jpeg" data-caption="PRD Consultants Team Activity">
+            <img src="images/team/post5.jpeg" alt="Team activity" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post8.jpeg" data-caption="PRD Field Operations">
+            <img src="images/team/post8.jpeg" alt="Field operations" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post7.jpeg" data-caption="PRD Consultants – Conference &amp; Seminar">
+            <img src="images/team/post7.jpeg" alt="Conference and seminar" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post11.jpeg" data-caption="PRD Consultants Team">
+            <img src="images/team/post11.jpeg" alt="PRD team members" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post9.jpeg" data-caption="Field Operations – Development Work">
+            <img src="images/team/post9.jpeg" alt="Development work in field" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post10.jpeg" data-caption="PRD Consultants – Stakeholder Meeting">
+            <img src="images/team/post10.jpeg" alt="Stakeholder meeting" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post14.jpeg" data-caption="PRD Consultants – Expert Network">
+            <img src="images/team/post14.jpeg" alt="Expert network" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post12.jpeg" data-caption="Field Visit – PRD Consultants">
+            <img src="images/team/post12.jpeg" alt="Field visit" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post13.jpeg" data-caption="PRD Consultants – Capacity Building Event">
+            <img src="images/team/post13.jpeg" alt="Capacity building event" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post17.jpeg" data-caption="PRD Team – Dedicated Professionals">
+            <img src="images/team/post17.jpeg" alt="Dedicated professionals" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post15.jpeg" data-caption="Field Engagement – PRD Consultants">
+            <img src="images/team/post15.jpeg" alt="Field engagement" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post16.jpeg" data-caption="PRD Consultants – Training Session">
+            <img src="images/team/post16.jpeg" alt="Training session" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post20.jpeg" data-caption="PRD Consultants – Leadership &amp; Staff">
+            <img src="images/team/post20.jpeg" alt="Leadership and staff" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="field" data-src="images/team/post18.jpeg" data-caption="PRD Consultants – Field Impact">
+            <img src="images/team/post18.jpeg" alt="Field impact" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Field</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post19.jpeg" data-caption="PRD Consultants – Annual Gathering">
+            <img src="images/team/post19.jpeg" alt="Annual gathering" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="team" data-src="images/team/post6.jpeg" data-caption="PRD Consultants Team Activity">
+            <img src="images/team/post6.jpeg" alt="Team activity" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Team</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-cat="events" data-src="images/team/post21.jpeg" data-caption="PRD Consultants – Community Impact Event">
+            <img src="images/team/post21.jpeg" alt="Community impact event" loading="lazy">
+            <div class="gallery-item__overlay"></div>
+            <div class="gallery-item__label"><span class="gallery-item__tag">Events</span></div>
+          </div>
+
+        </div><!-- /gallery-grid -->
+
+        <div class="gallery-empty" id="gallery-empty">
+          <i class="fa-regular fa-image"></i>
+          <p>No photos in this category yet.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox viewer">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="lightbox-inner">
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-top row">
+          <div class="col-md-4 footer-brand">
+            <img src="images/logo.png" alt="PRD Consultants" class="footer-logo" width="180" height="48">
+            <p>Delivering evidence-based solutions for sustainable development, institutional strengthening, and lasting impact.</p>
+          </div>
+          <div class="col-md-8">
+            <div class="footer-offices">
+              <div class="office-col">
+                <div class="title">United Kingdom</div>
+                <ul>
+                  <li><span class="icon"><span class="stm-location-2"></span></span><span>Office 101A 182-184 High Street North, E6 2JA London, England United Kingdom</span></li>
+                  <li><span class="icon"><span class="stm-iphone"></span></span><span>+44 20 3432 3542</span></li>
+                  <li><span class="icon"><span class="stm-email"></span></span><span><a href="mailto:md@prdconsultants.com">md@prdconsultants.com</a></span></li>
+                </ul>
+              </div>
+              <div class="office-col">
+                <div class="title">Pakistan Ã¢â‚¬â€œ Islamabad</div>
+                <ul>
+                  <li><span class="icon"><span class="stm-location-2"></span></span><span>Office No. 1, Mezzanine Floor, 25-Huma Plaza, Fazal-e-Haq Road, Blue Area, Islamabad, Pakistan</span></li>
+                  <li><span class="icon"><span class="stm-iphone"></span></span><span>+92 51 260 4334</span></li>
+                  <li><span class="icon"><span class="stm-email"></span></span><span><a href="mailto:info.ISB@prdconsultantsltd.com">info.ISB@prdconsultantsltd.com</a></span></li>
+                </ul>
+              </div>
+              <div class="office-col">
+                <div class="title">Pakistan Ã¢â‚¬â€œ Sindh</div>
+                <ul>
+                  <li><span class="icon"><span class="stm-location-2"></span></span><span>House No. A28 &amp; 29, Bakhtawar Colony, Opposite Abdullah Sports City, Qasimabad, Hyderabad, Pakistan</span></li>
+                  <li><span class="icon"><span class="stm-iphone"></span></span><span>+92 222 657 214</span></li>
+                  <li><span class="icon"><span class="stm-email"></span></span><span><a href="mailto:info.HYD@prdconsultantsltd.com">info.HYD@prdconsultantsltd.com</a></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright-row">
+          <p class="copyright-text">&copy; 2026 PRD Consultants (Private) Limited. All rights reserved.</p>
+          <p class="footer-powered">Powered by <a href="https://xcltechnologies.com/" target="_blank" rel="noopener noreferrer">XCl Technologies</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="https://wa.me/447304150461?text=Hello%20PRD%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+      class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+      title="WhatsApp +44 7304 150 461">
+      <span class="whatsapp-float__icon"><i class="fab fa-whatsapp"></i></span>
+      <span class="whatsapp-float__pulse"></span>
+    </a>
+
+  </div><!-- /#wrapper -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Filter ---- */
+      var $filterBtns = $('.gallery-filter-btn');
+      var $items      = $('.gallery-item');
+      var $empty      = $('#gallery-empty');
+      var activeFilter = 'all';
+
+      $filterBtns.on('click', function () {
+        var filter = $(this).data('filter');
+        if (filter === activeFilter) return;
+        activeFilter = filter;
+
+        $filterBtns.removeClass('active');
+        $(this).addClass('active');
+
+        var visible = 0;
+        $items.each(function () {
+          var cat  = $(this).data('cat');
+          var show = filter === 'all' || cat === filter;
+          if (show) {
+            $(this).removeClass('hidden').addClass('reveal');
+            visible++;
+          } else {
+            $(this).addClass('hidden').removeClass('reveal revealed');
+          }
+        });
+
+        $empty[visible === 0 ? 'addClass' : 'removeClass']('visible');
+        $(window).trigger('scroll');
+      });
+
+      /* ---- Lightbox ---- */
+      var $lightbox  = $('#lightbox');
+      var $lbImg     = $('#lightbox-img');
+      var $lbCaption = $('#lightbox-caption');
+      var $lbCounter = $('#lightbox-counter');
+      var lbItems    = [];
+      var lbCurrent  = 0;
+
+      function buildLbItems() {
+        lbItems = [];
+        $items.not('.hidden').each(function () {
+          lbItems.push({
+            src:     $(this).data('src'),
+            caption: $(this).data('caption')
+          });
+        });
+      }
+
+      function showLbSlide(i) {
+        lbCurrent     = (i + lbItems.length) % lbItems.length;
+        var item      = lbItems[lbCurrent];
+        if (!item) return;
+        $lbImg.attr('src', item.src).attr('alt', item.caption);
+        $lbCaption.text(item.caption);
+        $lbCounter.text((lbCurrent + 1) + ' / ' + lbItems.length);
+      }
+
+      function openLightbox(src) {
+        buildLbItems();
+        var idx = 0;
+        for (var i = 0; i < lbItems.length; i++) {
+          if (lbItems[i].src === src) { idx = i; break; }
+        }
+        lbCurrent = idx;
+        showLbSlide(lbCurrent);
+        $lightbox.addClass('active');
+        $('body').css('overflow', 'hidden');
+      }
+
+      function closeLightbox() {
+        $lightbox.removeClass('active');
+        $('body').css('overflow', '');
+      }
+
+      $items.on('click', function () {
+        openLightbox($(this).data('src'));
+      });
+
+      $('#lightbox').on('click', function (e) {
+        if (e.target === this) closeLightbox();
+      });
+
+      $('#lightbox-close').on('click', closeLightbox);
+
+      $('#lightbox-prev').on('click', function (e) {
+        e.stopPropagation();
+        showLbSlide(lbCurrent - 1);
+      });
+
+      $('#lightbox-next').on('click', function (e) {
+        e.stopPropagation();
+        showLbSlide(lbCurrent + 1);
+      });
+
+      $(document).on('keydown', function (e) {
+        if (!$lightbox.hasClass('active')) return;
+        if (e.key === 'Escape')      closeLightbox();
+        if (e.key === 'ArrowLeft')   showLbSlide(lbCurrent - 1);
+        if (e.key === 'ArrowRight')  showLbSlide(lbCurrent + 1);
+      });
+
+      /* Touch/swipe */
+      var touchStartX = 0;
+      document.getElementById('lightbox').addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      document.getElementById('lightbox').addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          diff > 0 ? showLbSlide(lbCurrent + 1) : showLbSlide(lbCurrent - 1);
+        }
+      }, { passive: true });
+
+    })();
+  </script>
+</body>
+
+</html>
